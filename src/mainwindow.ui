@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>814</width>
+    <height>602</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="styleSheet">
+       <string notr="true">
+QTabBar::tab {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+     border: 1px solid #C4C4C3;
+     border-bottom-color: #C2C7CB; /* same as the pane color */
+     min-width: 20ex;
+     padding: 2px;
+	 margin-right: -2px;
+	margin-top: 2px;
+	margin-bottom: 5px;
+ }
+
+ QTabBar::tab:selected, QTabBar::tab:hover {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #fafafa, stop: 0.4 #f4f4f4,
+                                 stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+ }
+
+ QTabBar::tab:selected {
+     border-color: #9B9B9B;
+     border-bottom-color: #C2C7CB; 
+	margin-top: 0px;
+ }
+
+QTabBar::tab:first{
+border-top-left-radius: 10px;
+margin-left: 20px;
+}
+QTabBar::tab:last{
+border-top-right-radius: 10px;
+}</string>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Triangular</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="elideMode">
+       <enum>Qt::ElideNone</enum>
+      </property>
+      <widget class="QWidget" name="tabResume">
+       <attribute name="title">
+        <string>Résumé</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="tabCompte">
+       <attribute name="title">
+        <string>Compte</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QMdiArea" name="comptesArea">
+          <property name="activationOrder">
+           <enum>QMdiArea::CreationOrder</enum>
+          </property>
+          <property name="viewMode">
+           <enum>QMdiArea::SubWindowView</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="compteBar">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Sunken</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <property name="leftMargin">
+            <number>2</number>
+           </property>
+           <property name="topMargin">
+            <number>2</number>
+           </property>
+           <property name="rightMargin">
+            <number>2</number>
+           </property>
+           <property name="bottomMargin">
+            <number>2</number>
+           </property>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabBudget">
+       <attribute name="title">
+        <string>Budget</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QSplitter" name="budgetSplitter">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <widget class="QFrame" name="frame">
+           <property name="minimumSize">
+            <size>
+             <width>250</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>350</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0">
+            <item>
+             <widget class="QToolBox" name="pages">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="pageBarre">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>241</width>
+                 <height>201</height>
+                </rect>
+               </property>
+               <attribute name="label">
+                <string>Diagramme en Barre</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout" columnstretch="4,7">
+                <item row="0" column="1">
+                 <widget class="QComboBox" name="outTypeComboBox">
+                  <item>
+                   <property name="text">
+                    <string>Maximum</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Somme dépensée</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Somme restante</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>Structure:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
+                   <string>Interieur:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QComboBox" name="inTypeComboBox">
+                  <item>
+                   <property name="text">
+                    <string> - Aucun -</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Somme dépensée</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Somme restante</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="7" column="0" colspan="2">
+                 <spacer name="verticalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="4" column="0" colspan="2">
+                 <widget class="Line" name="line">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0" colspan="2">
+                 <widget class="QGroupBox" name="groupBox">
+                  <property name="title">
+                   <string>Legende</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="pageCamembert">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>230</width>
+                 <height>85</height>
+                </rect>
+               </property>
+               <attribute name="label">
+                <string>Camembert</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_2">
+                <item row="0" column="1">
+                 <widget class="QComboBox" name="outTypeComboBox_2">
+                  <item>
+                   <property name="text">
+                    <string>Maximum</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Somme dépensée</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Somme restante</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_6">
+                  <property name="text">
+                   <string>Interieur</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0" colspan="2">
+                 <widget class="Line" name="line_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QComboBox" name="comboBox">
+                  <item>
+                   <property name="text">
+                    <string> - Aucun -</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Somme dépensée</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Somme restante</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
+                   <string>Structure</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0" colspan="2">
+                 <spacer name="verticalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="pageRubrique">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>100</width>
+                 <height>30</height>
+                </rect>
+               </property>
+               <attribute name="label">
+                <string>Rubrique</string>
+               </attribute>
+              </widget>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="GroupBox">
+              <property name="title">
+               <string>Période</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_5">
+               <item>
+                <widget class="QCheckBox" name="checkBox">
+                 <property name="text">
+                  <string>Plusieurs mois</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout">
+                 <item>
+                  <widget class="QLabel" name="label">
+                   <property name="text">
+                    <string>Début:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="startingMonth">
+                   <property name="editable">
+                    <bool>false</bool>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>Janvier</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Fevrier</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Mars</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Avril</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Mai</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Juin</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Juillet</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Aout</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Septembre</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Octobre</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Novembre</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Décembre</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="startingYear">
+                   <property name="minimum">
+                    <number>2011</number>
+                   </property>
+                   <property name="maximum">
+                    <number>2100</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                 <item>
+                  <widget class="QLabel" name="label_2">
+                   <property name="text">
+                    <string>Fin:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="startingMonth_2">
+                   <property name="editable">
+                    <bool>false</bool>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>Janvier</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Fevrier</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Mars</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Avril</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Mai</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Juin</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Juillet</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Aout</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Septembre</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Octobre</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Novembre</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Décembre</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="spinBox">
+                   <property name="minimum">
+                    <number>2011</number>
+                   </property>
+                   <property name="maximum">
+                    <number>2100</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="perMonth">
+                 <property name="text">
+                  <string>Moyenne par mois</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QGraphicsView" name="budgetView">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>4</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="baseSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>814</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionNouveauProjet"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSaveAs"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menuEdition">
+    <property name="title">
+     <string>Edition</string>
+    </property>
+    <addaction name="actionOptionProjet"/>
+    <addaction name="separator"/>
+    <addaction name="actionOption"/>
+   </widget>
+   <addaction name="menuFichier"/>
+   <addaction name="menuEdition"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen"/>
+  </widget>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Ouvrir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Enregistrer</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionOptionProjet">
+   <property name="text">
+    <string>Option Projet</string>
+   </property>
+  </action>
+  <action name="actionNouveauProjet">
+   <property name="text">
+    <string>Nouveau Projet</string>
+   </property>
+  </action>
+  <action name="actionOption">
+   <property name="text">
+    <string>Option GMoney</string>
+   </property>
+  </action>
+  <action name="actionSaveAs">
+   <property name="text">
+    <string>Enregistrer Sous</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionQuitter</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>425</x>
+     <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>perMonth</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>462</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>61</x>
+     <y>542</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>startingMonth_2</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>131</x>
+     <y>461</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>131</x>
+     <y>505</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>spinBox</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>198</x>
+     <y>454</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>201</x>
+     <y>510</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_2</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>45</x>
+     <y>458</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>45</x>
+     <y>507</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startingYear</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>201</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>201</x>
+     <y>505</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

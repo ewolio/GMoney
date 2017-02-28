@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file alias="colorMisc.js">src/GUI/colorMisc.js</file>
+        <file alias="DBCompteView.qml">src/GUI/DBCompteView.qml</file>
+        <file alias="GColorSelector.qml">src/GUI/GColorSelector.qml</file>
+        <file alias="GGradiantSelector.qml">src/GUI/GGradiantSelector.qml</file>
+        <file alias="GWheelHueSelector.qml">src/GUI/GWheelHueSelector.qml</file>
+    </qresource>
+    <qresource prefix="/imgs">
+        <file alias="splash.png">rsrc/imgs/splash.png</file>
+        <file alias="IcoOtOut.png">rsrc/imgs/IcoOtOut.png</file>
+        <file alias="IcoOtIn.png">rsrc/imgs/IcoOtIn.png</file>
+        <file alias="IcoOOut.png">rsrc/imgs/IcoOOut.png</file>
+        <file alias="IcoOIn.png">rsrc/imgs/IcoOIn.png</file>
+        <file alias="IcoGM.png">rsrc/imgs/IcoGM.png</file>
+        <file alias="IcoDelete.png">rsrc/imgs/IcoDelete.png</file>
+        <file alias="IcoCLivret.png">rsrc/imgs/IcoCLivret.png</file>
+        <file alias="IcoCEspece.png">rsrc/imgs/IcoCEspece.png</file>
+        <file alias="IcoCCheque.png">rsrc/imgs/IcoCCheque.png</file>
+        <file alias="graph1.png">rsrc/imgs/graph1.png</file>
+        <file alias="filter.png">rsrc/imgs/filter.png</file>
+        <file alias="edit.png">rsrc/imgs/edit.png</file>
+        <file alias="addGraph.png">rsrc/imgs/addGraph.png</file>
+        <file alias="add.png">rsrc/imgs/add.png</file>
+        <file alias="IcoGM.ico">rsrc/imgs/IcoGM.ico</file>
+    </qresource>
+</RCC>
